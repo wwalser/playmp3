@@ -1,8 +1,0 @@
-{
-  "name": "Play MP3s",
-  "version": "0.1",
-  "description": "Turns all mp3s on a page into embedded flash players.",
-  "browser_action": {
-    "default_icon": "icon.png"
-  }
-}
