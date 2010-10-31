@@ -1,6 +1,6 @@
 (function(){
 var anchors = document.getElementsByTagName('a'),
-	mp3Regex = new RegExp('\.mp3$'),
+	mp3Regex = new RegExp('\\.mp3$'),
 	mp3Anchors = [];
 
 function notify(mp3Anchors){
