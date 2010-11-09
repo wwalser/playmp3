@@ -1,6 +1,7 @@
 (function(){
 var player = document.createElement('div'),
-	songList;
+	songList,
+	playerRichCombo;
 	
 player.innerHTML = '<audio></audio><select class="playMp3SongList"></select>';
 songList = $(player.lastChild);
@@ -13,10 +14,13 @@ for (var i = 0; i < playmp3s.mp3Anchors.length; i++) {
 	songList.append(songOption);
 }
 
-$(player).appendTo('body');
-songList.richcombo().richcombo('refresh');
-var playerDropDown = songList.richcombo('widget');
-playerDropDown.position({
+$(player).addClass('playmp3s').appendTo('body');
+songList.richcombo();
+$('.richComboContainer').addClass('playmp3s');
+songList.richcombo('refresh');
+
+playerRichCombo = songList.richcombo('widget');
+playerRichCombo.position({
 	my: "right top",
 	at: "right top",
 	of: window,

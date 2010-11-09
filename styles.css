@@ -1,28 +1,33 @@
 /*How to style a rich combo*/
-.richComboButton {
+.playmp3s .richComboButton {
 	background-color: #E3E3E3;
 	border: 1px solid #939393;
 	color: #000;
 	display: block;
+	position: absolute;
 	text-decoration: none;
 	width: 300px;
 }
-.richComboButton:hover{
+.playmp3s .richComboButton:hover{
 	background-color: #f3f3f3;
 }
-.richComboList{
+.playmp3s.richComboContainer{
+	width: 300px;
+}
+.playmp3s .richComboList{
 	background-color: #f5f5f5;
 	border: 1px solid #939393;
 	list-style: none;
+	margin: 0px;
 	padding: 0px;
 	width: 300px;
 }
-.richComboList a{
+.playmp3s .richComboList a{
 	color: #000;
 	display: block;
 	text-decoration: none;
 	width: 100%;
 }
-.ui-state-hover{
+.playmp3s .ui-state-hover{
 	background-color: #e3e3e3;
 }
