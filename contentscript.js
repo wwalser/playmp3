@@ -6,35 +6,25 @@ var anchors = document.getElementsByTagName('a'),
 function notify(mp3Anchors){
 	//notify background of the match and wait for a click on the page action
 	chrome.extension.sendRequest({}, function(){
-		function player(anchor){
-			var container = document.createElement('p'),
-				mp3Location = anchor.getAttribute('href'),
-				embed = '<embed \
-						type="application/x-shockwave-flash" \
-						wmode="transparent" \
-						src="http://www.google.com/reader/ui/3523697345-audio-player.swf?audioUrl='
-						+ mp3Location +
-						'" height="27" \
-						width="320">\
-					</embed><br>';
-			container.innerHTML = embed;
-			container.insertBefore(anchor);
-			return container;
-		}
+		var player = document.createElement('div'),
+			songList;
+		
+		player.innerHTML = '<audio></audio><select class="playMp3SongList"></select>';
+		songList = player.lastChild;
 		
 		for (var i = 0; i < mp3Anchors.length; i++) {
-			var anchor = mp3Anchors[i],
-				elementAfter = anchor.nextSibling,
-				parent = anchor.parentNode;
-			
-			parent.removeChild(anchor);
-			parent.insertBefore(player(anchor), elementAfter);
+			var songOption = document.createElement('option');
+				anchor = mp3Anchors[i];
+			songOption.setAttribute('value', anchor.getAttribute('href'));
+			songOption.textContent = anchor.textContent;
+			songList.insertBefore(songOption);
 		}
+		document.body.insertBefore(player);
 	});
 }
 
 
-for(var i = 0; i < anchors.length; i++){
+for (var i = 0; i < anchors.length; i++) {
 	var anchor = anchors[i];
 	if (mp3Regex.test(anchor.getAttribute('href'))) {
 		mp3Anchors.push(anchor);
