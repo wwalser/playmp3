@@ -1,3 +1,4 @@
+var playmp3s = {};
 (function(){
 var anchors = document.getElementsByTagName('a'),
 	mp3Regex = new RegExp('\\.mp3$'),
@@ -5,22 +6,8 @@ var anchors = document.getElementsByTagName('a'),
 
 function notify(mp3Anchors){
 	//notify background of the match and wait for a click on the page action
-	chrome.extension.sendRequest({}, function(){
-		var player = document.createElement('div'),
-			songList;
-		
-		player.innerHTML = '<audio></audio><select class="playMp3SongList"></select>';
-		songList = player.lastChild;
-		
-		for (var i = 0; i < mp3Anchors.length; i++) {
-			var songOption = document.createElement('option');
-				anchor = mp3Anchors[i];
-			songOption.setAttribute('value', anchor.getAttribute('href'));
-			songOption.textContent = anchor.textContent;
-			songList.insertBefore(songOption);
-		}
-		document.body.insertBefore(player);
-	});
+	playmp3s.mp3Anchors = mp3Anchors;
+	chrome.extension.sendRequest({});
 }
 
 
