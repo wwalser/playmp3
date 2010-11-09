@@ -7,6 +7,7 @@
 			chrome.pageAction.show(sender.tab.id);
 
 			chrome.pageAction.onClicked.addListener(function(tab){
+				chrome.tabs.insertCSS(null, {file: "styles.css"});
 				chrome.tabs.executeScript(null, {file: "lib/jquery-1.4.3.min.js"});
 				chrome.tabs.executeScript(null, {file: "lib/jquery-ui-1.8.6.min.js"});
 				chrome.tabs.executeScript(null, {file: "lib/jquery.menu.js"});
