@@ -1,6 +1,6 @@
 {
 	"name": "Play MP3s",
-	"version": "0.1",
+	"version": "0.5",
 	"description": "Finds mp3 links on a page and creates a music player.",
 	"permissions": [
 		"tabs",
