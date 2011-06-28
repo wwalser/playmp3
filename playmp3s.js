@@ -17,14 +17,19 @@ for (var i = 0; i < playmp3s.mp3Anchors.length; i++) {
 $(player).addClass('playmp3s').appendTo('body');
 songList.richcombo();
 $('.richComboContainer').addClass('playmp3s');
-songList.richcombo('refresh');
 
 playerRichCombo = songList.richcombo('widget');
-playerRichCombo.position({
-	my: "right top",
-	at: "right top",
-	of: window,
-	collision: "none"
-});
+playerPosition = {
+	position: 'fixed',
+	top: 0,
+	left: $(window).width() - playerRichCombo.width()
+};
+playerRichCombo.css(playerPosition);
+listPosition = {
+	position: 'fixed',
+	top: playerRichCombo.height(),
+	left: $(window).width() - playerRichCombo.width()
+}
+songList.richcombo('getList').parent().css(listPosition);
 
 })();
